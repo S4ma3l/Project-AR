@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
@@ -13,8 +14,8 @@ public class ARTapToPlaceObjectWithLock : MonoBehaviour
 	private Vector2 touchType;
 	private bool isLocked = false;
 
-	//private float holdTime = 0.8f; //or whatever
-	//private float acumTime = 0;
+	private float holdTime = 0.8f; //or whatever
+	private float acumTime = 0;
 
 	[SerializeField]
 	private Button lockButton;
@@ -24,7 +25,7 @@ public class ARTapToPlaceObjectWithLock : MonoBehaviour
 	private void Awake()
 	{
 		_arRaycastManager = GetComponent<ARRaycastManager>();
-			arRaycastManager = GetComponent<ARRaycastManager>();
+			_arRaycastManager = GetComponent<ARRaycastManager>();
 			if (lockButton != null)
 			{
 				lockButton.onClick.AddListener(Lock);
